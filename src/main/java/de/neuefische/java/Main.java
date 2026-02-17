@@ -3,7 +3,9 @@ package de.neuefische.java;
 import de.neuefische.java.model.Person;
 import de.neuefische.java.model.Student;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -60,6 +62,13 @@ public class Main {
         myList.add("String");
         String myValue = myList.get(0);
 
+        List<Integer> editedList = myList.stream()
+                .map((element) -> element + " abc")
+//                .filter((element) -> element.length() > 10)
+                .map(e -> e.length())
+                .toList();
+
+        System.out.println(editedList);
 
         MathService myMathService = new MathService();
         int sum = myMathService.sum(5, 9);
@@ -84,5 +93,8 @@ public class Main {
 
         System.out.println(student.getAge());
         System.out.println(Student.staticAge);
+
+        Person defaultPerson = new Person();
+        System.out.println(defaultPerson);
     }
 }

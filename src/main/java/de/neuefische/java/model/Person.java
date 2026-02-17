@@ -6,9 +6,11 @@ public class Person extends Object {
 
     protected String name;
     private int age;
+    private boolean isFullAge;
+    private Category userType;
 
     public Person() {
-
+        this.userType = Category.GUEST;
     }
 
     public Person(String name, int age) {
@@ -49,6 +51,7 @@ public class Person extends Object {
         return "Person{" +
                "age=" + age +
                ", name='" + name + '\'' +
+               ", isFullAge=" + isFullAge +
                '}';
     }
 }
