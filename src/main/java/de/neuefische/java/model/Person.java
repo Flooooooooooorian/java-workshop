@@ -2,9 +2,9 @@ package de.neuefische.java.model;
 
 import java.util.Objects;
 
-public class Person {
+public class Person extends Object {
 
-    private String name;
+    protected String name;
     private int age;
 
     public Person() {

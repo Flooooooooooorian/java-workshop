@@ -1,6 +1,7 @@
 package de.neuefische.java;
 
 import de.neuefische.java.model.Person;
+import de.neuefische.java.model.Student;
 
 import java.util.ArrayList;
 
@@ -46,11 +47,13 @@ public class Main {
         myPerson.setName("Florian");
         myPerson.setAge(1245);
 
-        int[] myArray = new int[3];
-        myArray[0] = 0;
-        myArray[1] = 1;
-        myArray[2] = 2;
-//        myArray[3] = 3;
+        int[] intArray = new int[3];
+        intArray[0] = 0;
+        intArray[1] = 1;
+        intArray[2] = 2;
+//        intArray[3] = 3;
+
+
 
 
         ArrayList<String> myList = new ArrayList<>();
@@ -58,8 +61,8 @@ public class Main {
         String myValue = myList.get(0);
 
 
-        PersonService myPersonService = new PersonService();
-        int sum = myPersonService.sum(5, 9);
+        MathService myMathService = new MathService();
+        int sum = myMathService.sum(5, 9);
         System.out.println(sum);
 
 
@@ -67,5 +70,19 @@ public class Main {
 
 
         System.out.println(myPerson.toString());
+
+
+        Student student = new Student();
+
+        student.setName("Florian");
+        student.getName();
+
+        student.setAge(100);
+
+        System.out.println(student.getAge());
+        //Student.staticAge = 1_000_000;
+
+        System.out.println(student.getAge());
+        System.out.println(Student.staticAge);
     }
 }
