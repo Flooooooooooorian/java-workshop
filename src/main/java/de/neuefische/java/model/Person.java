@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Person extends Object {
 
-    protected String name;
+    protected String name = null;
     private int age;
     private boolean isFullAge;
     private Category userType;
@@ -16,6 +16,29 @@ public class Person extends Object {
     public Person(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    public Person(int age, boolean isFullAge, String name, Category userType) {
+        this.age = age;
+        this.isFullAge = isFullAge;
+        this.name = name;
+        this.userType = userType;
+    }
+
+    public boolean isFullAge() {
+        return isFullAge;
+    }
+
+    public void setFullAge(boolean fullAge) {
+        isFullAge = fullAge;
+    }
+
+    public Category getUserType() {
+        return userType;
+    }
+
+    public void setUserType(Category userType) {
+        this.userType = userType;
     }
 
     public int getAge() {
@@ -36,14 +59,15 @@ public class Person extends Object {
 
     @Override
     public boolean equals(Object o) {
+
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return age == person.age && Objects.equals(name, person.name);
+        return age == person.age && isFullAge == person.isFullAge && Objects.equals(name, person.name) && userType == person.userType;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, age);
+        return Objects.hash(name, age, isFullAge, userType);
     }
 
     @Override
@@ -52,6 +76,7 @@ public class Person extends Object {
                "age=" + age +
                ", name='" + name + '\'' +
                ", isFullAge=" + isFullAge +
+               ", userType=" + userType +
                '}';
     }
 }

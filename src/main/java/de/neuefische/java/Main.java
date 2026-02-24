@@ -1,7 +1,6 @@
 package de.neuefische.java;
 
-import de.neuefische.java.model.Person;
-import de.neuefische.java.model.Student;
+import de.neuefische.java.model.*;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -56,8 +55,6 @@ public class Main {
 //        intArray[3] = 3;
 
 
-
-
         ArrayList<String> myList = new ArrayList<>();
         myList.add("String");
         String myValue = myList.get(0);
@@ -96,5 +93,24 @@ public class Main {
 
         Person defaultPerson = new Person();
         System.out.println(defaultPerson);
+
+        PersonRecord p1 = new PersonRecord("Florian", 100, true, Category.ADMIN);
+        PersonRecord p2 = new PersonRecord(p1.name(), p1.age() + 1, p1.isFullAge(), p1.userType());
+
+
+        PersonRecord p5 = p1.withAge(101);
+
+        System.out.println(p1);
+        System.out.println(p2);
+
+
+        PersonLombok p4 = new PersonLombok(null,  123, true, Category.ADMIN);
+        PersonLombok p3 = PersonLombok.builder()
+                .userType(Category.USER)
+                .age(89)
+                .build();
+
+        System.out.println(p3);
+        System.out.println(p3.getName().length());
     }
 }
